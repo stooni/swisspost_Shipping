@@ -13,7 +13,9 @@
  * Text Domain: postpaceconomy
  * Post Tarfie Januar 2018
  */
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 if ( ! defined( 'WPINC' ) ) {
  
@@ -108,7 +110,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                  * @param mixed $package
                  * @return void
                  */
-                 public function calculate_shipping( $package = array() ) {
+                public function calculate_shipping( $package = array() ) {
                     
                     $weight = 0;
                     $cost = 0;
@@ -117,7 +119,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                     foreach ( $package['contents'] as $item_id => $values ) 
                     { 
                         $_product = $values['data']; 
-                        $weight = $weight + $_product->get_weight() * $values['quantity']; 
+                        $weight = (float)$weight + (float)$_product->get_weight() * (float)$values['quantity']; 
                     }
  
                     $weight = wc_get_weight( $weight, 'kg' );
@@ -248,7 +250,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                  * @param mixed $package
                  * @return void
                  */
-             public function calculate_shipping( $package = array() ) {
+              public function calculate_shipping( $package = array() ) {
                     
                     $weight = 0;
                     $cost = 0;
@@ -257,7 +259,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                     foreach ( $package['contents'] as $item_id => $values ) 
                     { 
                         $_product = $values['data']; 
-                        $weight = $weight + $_product->get_weight() * $values['quantity']; 
+                        $weight = (float)$weight + (float)$_product->get_weight() * (float)$values['quantity']; 
                     }
  
                     $weight = wc_get_weight( $weight, 'kg' );
@@ -388,7 +390,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                  * @param mixed $package
                  * @return void
                  */
-              public function calculate_shipping( $package = array() ){
+              public function calculate_shipping( $package = array() ) {
                     
                     $weight = 0;
                     $cost = 0;
@@ -397,7 +399,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                     foreach ( $package['contents'] as $item_id => $values ) 
                     { 
                         $_product = $values['data']; 
-                        $weight = $weight + $_product->get_weight() * $values['quantity']; 
+                        $weight = (float)$weight + (float)$_product->get_weight() * (float)$values['quantity']; 
                     }
  
                     $weight = wc_get_weight( $weight, 'kg' );
@@ -498,7 +500,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                 foreach ( $package['contents'] as $item_id => $values ) 
                 { 
                     $_product = $values['data']; 
-                    $weight = $weight + $_product->get_weight() * $values['quantity']; 
+                    $weight = (float)$weight + (float)$_product->get_weight() * (float)$values['quantity']; 
                 }
  
                 $weight = wc_get_weight( $weight, 'kg' );
@@ -542,7 +544,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                 foreach ( $package['contents'] as $item_id => $values ) 
                 { 
                     $_product = $values['data']; 
-                    $weight = $weight + $_product->get_weight() * $values['quantity']; 
+                    $weight = (float)$weight + (float)$_product->get_weight() * (float)$values['quantity']; 
                 }
  
                 $weight = wc_get_weight( $weight, 'kg' );
@@ -585,7 +587,7 @@ function postexpress_validate_order( $posted )   {
                 foreach ( $package['contents'] as $item_id => $values ) 
                 { 
                     $_product = $values['data']; 
-                    $weight = $weight + $_product->get_weight() * $values['quantity']; 
+                    $weight = (float)$weight + (float)$_product->get_weight() * (float)$values['quantity']; 
                 }
  
                 $weight = wc_get_weight( $weight, 'kg' );
