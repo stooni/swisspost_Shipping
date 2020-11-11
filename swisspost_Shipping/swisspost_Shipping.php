@@ -108,7 +108,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                  * @param mixed $package
                  * @return void
                  */
-                public function calculate_shipping( $package ) {
+                 public function calculate_shipping( $package = array() ) {
                     
                     $weight = 0;
                     $cost = 0;
@@ -248,7 +248,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                  * @param mixed $package
                  * @return void
                  */
-              public function calculate_shipping( $package ) {
+             public function calculate_shipping( $package = array() ) {
                     
                     $weight = 0;
                     $cost = 0;
@@ -388,7 +388,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                  * @param mixed $package
                  * @return void
                  */
-              public function calculate_shipping( $package ) {
+              public function calculate_shipping( $package = array() ){
                     
                     $weight = 0;
                     $cost = 0;
